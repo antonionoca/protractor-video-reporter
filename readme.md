@@ -9,6 +9,8 @@ This is especially usefull for debugging you e2e specs on you CI server.
 
 # Prerequisites
 
+This library depends on ffmpeg compiled with x11grab enabled. You can use ffmpeg static builds available on http://johnvansickle.com/ffmpeg/
+
 You have to start Xvfb before starting Protractor and set the `DISPLAY` enviroment variable.
 
 If you're using Jenkins CI, you can use the [Xvfb plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin) to easily achive that.
