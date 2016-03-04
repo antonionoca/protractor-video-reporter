@@ -10,18 +10,29 @@
     "type": "git",
     "url": "https://github.com/tepez/protractor-video-reporter.git"
   },
-  "author": "Tom Tepez Yam <tomyam1@gmail.com> (https://github.com/tepez)",
+  "author": {
+    "name": "Tom Tepez Yam",
+    "email": "tomyam1@gmail.com",
+    "url": "https://github.com/tepez"
+  },
+  "contributors": {
+    "name": "Antonio Noca",
+    "email": "antonionoca@gmail.com",
+    "url": "https://github.com/antonionoca"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tepez/protractor-video-reporter/issues"
   },
   "homepage": "https://github.com/tepez/protractor-video-reporter",
   "dependencies": {
-    "debug": "^2.2.0",
-    "joi": "^7.2.0",
+    "joi": "^6.5.0",
     "lodash": "^3.10.0",
     "mkdirp": "^0.5.1",
-    "node-uuid": "^1.4.3",
-    "subtitles-parser": "0.0.2"
-  }
+    "node-uuid": "^1.4.3"
+  },
+  "readme": "# protractor-video-reporter\r\n\r\nCaptures video screen cast when running Protractor with a headless browser, e.g. under Xvfb.\r\n\r\n# Install\r\n\r\n    npm install --save-dev protractor-video-reporter\r\n\r\n# Usage\r\n\r\nIn the protractor configuration file:\r\n\r\n    var VideoReporter = require('protractor-video-reporter');\r\n\r\n    ...\r\n\r\n    onPrepare: function() {\r\n      ...\r\n      jasmine.getEnv().addReporter(new VideoReporter({\r\n        baseDirectory: Path.join(__dirname, 'reports/videos/')\r\n      }));\r\n    }\r\n\r\n\r\nYou have to start Xvfb before starting Protractor and define DISPLAY enviroment variable.\r\n\r\nThe reporter will capture the Xvdb display for every spec. If a spec fails or if it succeed and `saveSuccessVideos` is true we will keep the video and print a message to the console with the location. Otherwise, the video file is deleted.\r\n\r\nThe location of every video is `baseDirectory/{some UUID}`.\r\n\r\n# Options\r\n\r\n* `baseDirectory` (string, required) - The path to the directory where videos are stored. If not existing, it gets created.\r\n* `saveSuccessVideos` (bool, false) - If true, will save the videos of the succussfull specs, as well as the failed specs.\r\n* `ffmpegCmd`: (string, \"ffmpeg\") - The command used to execute ffmpeg, e.g. /usr/bin/ffmpeg.\r\n* `ffmpegArgs`: (array of strings and nunmbers, see code for defaults) - The argumetns passed to ffmpeg, not including the actual output file which will be appended.\r\n* `debug` (boolean, false) - If true, will print debug information to the console.\r\n\r\n",
+  "readmeFilename": "readme.md",
+  "_id": "protractor-video-reporter@0.1.0",
+  "_from": "protractor-video-reporter@~0.1.0"
 }
